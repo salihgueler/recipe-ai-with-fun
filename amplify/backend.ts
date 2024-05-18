@@ -1,8 +1,10 @@
 import { defineBackend } from "@aws-amplify/backend";
 import { data } from "./data/resource";
 import { PolicyStatement } from "aws-cdk-lib/aws-iam";
+import {auth} from "./auth/resource";
 
 const backend = defineBackend({
+  auth,
   data,
 });
 
@@ -23,6 +25,5 @@ bedrockDataSource.grantPrincipal.addToPrincipalPolicy(
       "arn:aws:bedrock:us-east-1::foundation-model/anthropic.claude-3-sonnet-20240229-v1:0",
     ],
     actions: ["bedrock:InvokeModel"],
-    
   })
 );

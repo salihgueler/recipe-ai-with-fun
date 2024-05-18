@@ -1,7 +1,7 @@
 export function request(ctx) {
   const { ingredients = [] } = ctx.args;
 
-  const prompt = `Suggest a recipe idea using these ingredients : ${ingredients.join(
+  const prompt = `Suggest a recipe idea using these ingredients. Recipe should follow the metric system: ${ingredients.join(
     ","
   )}.`;
 
